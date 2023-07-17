@@ -51,7 +51,7 @@ Find our full documentation online on [api.twikey.com](https://api.twikey.com).
 
 ## Getting started ##
 
-Initializing the Twikey API client using your preferred Http client (eg. [gruzzle](https://docs.guzzlephp.org/en/stable/)) 
+Initializing the Twikey API client using your preferred Http client (eg. [guzzle](https://docs.guzzlephp.org/en/stable/)) 
 and configure your API key which you can find in the [Twikey merchant interface](https://www.twikey.com).
 
 ```php
@@ -62,7 +62,7 @@ use Twikey\Api;
 $httpClient = new Client([
     'http_errors' => false,
     'debug' => false
-])
+]);
 
 $twikey = new Twikey($httpClient,$APIKEY);
 ``` 
