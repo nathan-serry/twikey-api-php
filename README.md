@@ -94,19 +94,19 @@ header("Location: " . $invite->url);
 $twikey->document->feed(new class implements DocumentCallback {
    function handleNew($update)
    {
-       print("New " . $update->Mndt->MndtId . ' @ '. $update->EvtTime . "\n");
+       print"New " . $update->Mndt->MndtId . ' @ '. $update->EvtTime . "\n";
    }
 
    function handleUpdate($update)
    {
        $rsn = $update->AmdmntRsn->Rsn;
-       print("Update: " . $update->Mndt->MndtId . ' -> '. $rsn . ' @ '. $update->EvtTime . "\n");
+       print"Update: " . $update->Mndt->MndtId . ' -> '. $rsn . ' @ '. $update->EvtTime . "\n";
    }
 
    function handleCancel($update)
    {
        $rsn = $update->CxlRsn->Rsn;
-       print("Cancel: " . $update->OrgnlMndtId . ' -> '. $rsn . ' @ '. $update->EvtTime . "\n");
+       print"Cancel: " . $update->OrgnlMndtId . ' -> '. $rsn . ' @ '. $update->EvtTime . "\n";
    }
 }
 );
@@ -142,10 +142,10 @@ $count = $twikey->transaction->feed(new class implements TransactionCallback{
 When wants to inform you about new updates about documents or payments a `webhookUrl` specified in your api settings be called.  
 
 ```php
-$queryString = decode($_SERVER['QUERY_STRING'])
-$signatureHeader = $_SERVER['HTTP_X_SIGNATURE']
+$queryString = decode($_SERVER['QUERY_STRING']);
+$signatureHeader = $_SERVER['HTTP_X_SIGNATURE'];
 
-Twikey::validateWebhook($APIKEY, "abc=123&name=abc", $queryString, $signatureHeader)
+Twikey::validateWebhook($APIKEY, "abc=123&name=abc", $queryString, $signatureHeader);
 
 ```
 
